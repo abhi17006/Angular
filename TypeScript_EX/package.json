@@ -1,0 +1,23 @@
+{
+  "name": "basic-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "helloworld.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhi17006/Angular.git"
+  },
+  "author": "Abhi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhi17006/Angular/issues"
+  },
+  "homepage": "https://github.com/abhi17006/Angular#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
