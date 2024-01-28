@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-servers',
-  templateUrl: './servers.component.html',
-  styleUrls: ['./servers.component.css']
+  selector: 'app-ng-directives',
+  templateUrl: './ng-directives.component.html',
+  styleUrls: ['./ng-directives.component.css']
 })
-export class ServersComponent implements OnInit {
-  
+export class NgDirectivesComponent implements OnInit {
+
   allowNewServer = false;
   serverCreationStatus = "No Server was created!";
+  serverCreated = false;
   serverName = 'ABCSERVER';
   constructor() { 
     setTimeout(()=>{
@@ -20,11 +21,9 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer(){
+    this.serverCreated=true;
     this.serverCreationStatus = "Server was creted!";
   }
 
-  onUpdateServer(event: Event){
-    //FETCH event data using $event object in HTML file and below code 
-    this.serverName = (<HTMLInputElement>event.target).value;
-  }
+
 }
