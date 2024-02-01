@@ -11,3 +11,15 @@
     <!-- to provide else statement -->
     <p>No Server Created</p>
 </ng-template>
+
+
+<!-- code for ngStyle dynamically update style 
+    ngClass update data using css class
+-->
+
+<p [ngStyle]="{backgroundColor : getColor()}"
+    [ngClass]="{online: serverStatus === 'online'}"> 
+    {{'Server'}} with Id {{serverId}} is {{getServerStatus()}}
+</p>
+
+<app-server *ngFor="let server of servers"></app-server>
