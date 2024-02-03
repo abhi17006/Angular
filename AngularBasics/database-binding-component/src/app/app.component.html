@@ -1,12 +1,15 @@
 <div class="container">
-<app-cockpit></app-cockpit>
+  <!-- passing event from Parent component into child component -->
+<app-cockpit (serverCreated)="onServerAdded($event)"
+              (blueprintCreated)="onBlueprintAdded($event)">
+</app-cockpit>
   <hr>
   <div class="row">
     <div class="col-xs-12">
       <app-server-element *ngFor="let serverElement of serverElements"
-      
       [sevElement]="serverElement"></app-server-element>
-      <!--custom property binding  -->
+      <!--custom property binding above access child property into parent -->
+      
     </div>
   </div>
 </div>
