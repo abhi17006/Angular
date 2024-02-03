@@ -6,7 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrl: './cockpit.component.css'
 })
 export class CockpitComponent implements OnInit {
-  newServerName = '';
+  //newServerName = '';
   newServerContent = '';
 
   // properties for holding Parent custom  event, call eventEMitter constructor
@@ -16,16 +16,19 @@ export class CockpitComponent implements OnInit {
 
   ngOnInit(){
   }
-  onAddServer() {
+  //local reference variable 
+  onAddServer(nameInput) {
     //emits an event that containing values(Passing values) from parent Component
     this.serverCreated.emit({
-      serverName: this.newServerName, 
+      // serverName: this.newServerName, 
+      serverName: nameInput.value,
       serverContent:this.newServerContent});
   }
 
-  onAddBlueprint() {
+  onAddBlueprint(nameInput) {
     this.blueprintCreated.emit({
-      serverName: this.newServerName, 
+      // serverName: this.newServerName, using two-way data binding values
+      serverName: nameInput.value,
       serverContent:this.newServerContent});
   }
 }
