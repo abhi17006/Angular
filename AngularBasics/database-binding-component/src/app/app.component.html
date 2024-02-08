@@ -6,8 +6,18 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
+
+      <button class="btn btn-danger" (click)="onDestroyFirst()">Destroy COmponent</button>
       <app-server-element *ngFor="let serverElement of serverElements"
-      [sevElement]="serverElement"></app-server-element>
+      [sevElement]="serverElement">
+      
+      <!-- using below code from server-element html 
+        to use <ng-content></ng-content> special directive -->
+      <p #cp>
+        <strong *ngIf="serverElement.type === 'server'" style="color: red">{{serverElement.content}}</strong>
+        <em *ngIf="serverElement.type === 'blueprint'">{{serverElement.content}}</em>
+      </p>
+    </app-server-element>
       <!--custom property binding above access child property into parent -->
       
     </div>

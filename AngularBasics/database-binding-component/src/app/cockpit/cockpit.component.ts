@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -7,11 +7,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class CockpitComponent implements OnInit {
   //newServerName = '';
-  newServerContent = '';
+  //newServerContent = '';
 
   // properties for holding Parent custom  event, call eventEMitter constructor
   @Output() serverCreated =  new EventEmitter<{serverName:string, serverContent:string}>();
   @Output() blueprintCreated = new EventEmitter<{serverName:string, serverContent:string}>(); 
+
+  //using @ViewChild("selectELement would be local reference")
+  @ViewChild('serverContentInput') serverContentInput: ElementRef;
   constructor(){}
 
   ngOnInit(){
@@ -22,13 +25,14 @@ export class CockpitComponent implements OnInit {
     this.serverCreated.emit({
       // serverName: this.newServerName, 
       serverName: nameInput.value,
-      serverContent:this.newServerContent});
+      //access Element template values using nativElement
+      serverContent:this.serverContentInput.nativeElement.value});
   }
 
   onAddBlueprint(nameInput) {
     this.blueprintCreated.emit({
       // serverName: this.newServerName, using two-way data binding values
       serverName: nameInput.value,
-      serverContent:this.newServerContent});
+      serverContent:this.serverContentInput.nativeElement.value});
   }
 }

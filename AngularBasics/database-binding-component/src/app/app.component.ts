@@ -28,4 +28,8 @@ export class AppComponent implements OnInit {
       content: blueprintData.serverContent
     });
   }
+
+  onDestroyFirst(){
+    this.serverElements.splice(0,1);
+  }
 }

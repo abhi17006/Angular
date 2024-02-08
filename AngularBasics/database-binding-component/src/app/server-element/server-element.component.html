@@ -2,9 +2,14 @@
 <div class="card">
     <h5 class="card-header">{{element.name}}</h5>
     <div class="card-body">
-          <p class="card-text">
+        <div class="card-text">
+            <!-- access below code from App component  -->
+            <ng-content></ng-content>
+        </div>
+        <!-- <p class="card-text">
             <strong *ngIf="element.type === 'server'" style="color: red">{{element.content}}</strong>
             <em *ngIf="element.type === 'blueprint'">{{element.content}}</em>
-          </p>
+          </p> -->
+          
     </div>
 </div>
