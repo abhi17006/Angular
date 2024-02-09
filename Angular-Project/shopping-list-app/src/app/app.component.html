@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -33,17 +33,18 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
-</nav>
+</nav> -->
 
 
-
-<app-header></app-header>
+<!--featureSelected event passing from parent to child  -->
+<app-header (featureSelected)="onNavigate($event)"></app-header>
 
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes></app-recipes>
-      <app-shoping-list></app-shoping-list>
+      <!-- using ngIf directives enable the component  -->
+      <app-recipes *ngIf ="loadedFeature === 'recipe'"></app-recipes>
+      <app-shoping-list *ngIf ="loadedFeature !== 'recipe'"></app-shoping-list>
     </div>
   </div>
 </div>

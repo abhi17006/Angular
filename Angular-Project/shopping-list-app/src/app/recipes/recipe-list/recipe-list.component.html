@@ -8,21 +8,14 @@
 <div class="row">
     <!-- add list-group block content -->
     <div class="list-group col-xs-12">
-        <a href="#" 
-            class="list-group-item clearfix"
-            *ngFor="let recipe of recipes">
-            <div class="float-start">
-                <h4 class="list-group-item-heading">{{recipe.name}}</h4>
-                <p class="list-group-item-text">{{recipe.description}}</p>
-            </div>
-            <!-- add image make it to right using float-end -->
-            <span class="float-end">
-                <img [src]="recipe.imagePath" 
-                    alt="{{recipe.name}}" 
-                    class="img-responsive" 
-                    style="max-height: 50px;">
-            </span>
-        </a>
-        <app-recipe-item></app-recipe-item>
+       <!-- access parent component data into CHild, [recipe] property from TS file
+        - evntListen recipeSelected, with method pass selcted recipeElement parameter
+    -->
+        <app-recipe-item 
+        *ngFor="let recipeElement of recipes"
+        [recipe]="recipeElement"
+        (recipeSelected)="onRecipeSelected(recipeElement)">
+
+        </app-recipe-item>
     </div>
 </div>

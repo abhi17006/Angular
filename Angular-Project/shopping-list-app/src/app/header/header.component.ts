@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  //using eventEmitter, @Output decorator make listen properties from parent component to 
+  @Output() featureSelected = new EventEmitter<string>();
+
+  //to show feature component receive sring from onSelect()method
+  onSelect(feature : string){
+    this.featureSelected.emit(feature);
+  }
 }
