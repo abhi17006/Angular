@@ -15,9 +15,13 @@
 <!-- add drop-down -->
 <div class="row">
     <div class="col-xs-12">
-        <div class="btn-group">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                Manage Recipe 
+        <div class="btn-group" appDropdown>
+            <button 
+                type="button" 
+                class="btn btn-primary dropdown-toggle" 
+                data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Manage Recipe <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">To Shopping List</a></li>
