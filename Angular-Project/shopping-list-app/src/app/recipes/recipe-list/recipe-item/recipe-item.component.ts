@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Recipe } from '../../recipe.model';
+import { RecipeService } from '../../service/recipe.service';
 
 @Component({
   selector: 'app-recipe-item',
@@ -9,13 +10,13 @@ import { Recipe } from '../../recipe.model';
 export class RecipeItemComponent {
   //input decorator to bind property form outside
   @Input() recipe:Recipe;
-  //listen event from the outside parent RecipeList component
-  @Output() recipeSelected =  new EventEmitter<void>();
+  
 
-  constructor(){
+  constructor(private recipeService: RecipeService){
   }
 
   onSelected(){
-    this.recipeSelected.emit();
+    //emit recipeService event
+    this.recipeService.recipeSelected.emit(this.recipe);
   }
 }

@@ -8,14 +8,12 @@
 <div class="row">
     <!-- add list-group block content -->
     <div class="list-group col-xs-12">
-       <!-- access parent component data into CHild, [recipe] property from TS file
+       <!-- access parent component data into CHild, [recipe] property from recipe-item.TS file
         - evntListen recipeSelected, with method pass selcted recipeElement parameter
     -->
         <app-recipe-item 
         *ngFor="let recipeElement of recipes"
-        [recipe]="recipeElement"
-        (recipeSelected)="onRecipeSelected(recipeElement)">
-
+        [recipe]="recipeElement">
         </app-recipe-item>
     </div>
 </div>
