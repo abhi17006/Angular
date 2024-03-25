@@ -1,0 +1,18 @@
+
+
+
+<!-- working example <a routerLink="">Home</a>
+<button *ngIf="!(_oktaStateService.authState$ | async)?.isAuthenticated" (click)="signIn()">Login</button>
+<button *ngIf="(_oktaStateService.authState$ | async)?.isAuthenticated" (click)="signOut()">Logout</button>
+
+  <a routerLink="/profile">Profile</a>
+  <router-outlet></router-outlet> -->
+
+
+  <a routerLink="">Home</a>
+<button *ngIf="!(_oktaStateService.authState$ | async)?.isAuthenticated" routerLink="/login">Login</button>
+<button *ngIf="(_oktaStateService.authState$ | async)?.isAuthenticated" (click)="signOut()">Logout</button>
+
+  <a routerLink="/profile">Profile</a>
+  <router-outlet></router-outlet>
+  
